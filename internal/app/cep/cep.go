@@ -24,30 +24,6 @@ func (o *Output) ToJSON() string {
 	return string(data)
 }
 
-type ViaCEPResponse struct {
-	CEP         string `json:"cep"`
-	Logradouro  string
-	Complemento string
-	Bairro      string
-	Localidade  string
-	UF          string `json:"uf"`
-	IBGE        string `json:"ibge"`
-	GIA         string `json:"gia"`
-	DDD         string `json:"ddd"`
-	SIAFI       string `json:"siafi"`
-}
-
-type ApiCEPResponse struct {
-	Code       string
-	State      string
-	City       string
-	District   string
-	Address    string
-	Status     string
-	Ok         bool
-	StatusText string
-}
-
 func buildURL(provider string, term string) (string, error) {
 	if provider == ViaCEP {
 		return fmt.Sprintf("https://viacep.com.br/ws/%s/json/", term), nil
